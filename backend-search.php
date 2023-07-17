@@ -1,3 +1,4 @@
+<!--Spielersuche BackEnd-->
 <?php
 // Verbindungsaufbau
 $host = 'localhost';

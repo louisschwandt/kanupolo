@@ -1,3 +1,5 @@
+<!--Formular, um neuen Spieler anzulegen-->
+
 <!DOCTYPE html>
 <html lang="de">
 <head>

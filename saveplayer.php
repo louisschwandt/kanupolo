@@ -1,3 +1,4 @@
+<!--Script, um Parameter von addplayer auf Datenbank zu speichern-->
 <!DOCTYPE html>
 <html lang="de">
 <head>

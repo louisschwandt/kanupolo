@@ -1,0 +1,366 @@
+/*ALLGEMEIN*/
+/*BODY*/
+body{
+    font-family: 'Raleway', sans-serif;
+    font-display: swap;
+    --myDarkRedColor:#750000;
+    --myNormalRedColor: #f2262a;
+    --myMidRedColor:#d11518;
+    --myLightRedColor: #ffb3b3;
+    --myWhiteColor:#FFF;
+
+}
+/*Allgemein für Links*/
+a{
+    text-decoration: none;
+    color: var(--myWhiteColor);
+    transition: .5s;
+}
+
+a:hover{
+    color:var(--myLightRedColor);
+    transition: .5s;
+}
+
+h3{
+    justify-self: center;
+    align-self:center; 
+    text-align:center;
+}
+
+p{
+    justify-self: center;
+    align-self:center; 
+    text-align:center; 
+}
+/*NAVIGATION*/
+nav{
+    position: fixed;
+    display: grid;
+    grid-auto-flow:column;
+    grid-template-columns: 3fr 9fr 1fr;
+    width: 100%;
+    background-color: var(--myDarkRedColor);
+}
+
+nav> .logo{
+    color:var(--myLightRedColor);
+    justify-self: center;
+    align-self:center;   
+}
+
+nav>.mainLinks{
+    padding-right: 3em;
+    justify-self: center;
+    align-self: center;
+}
+
+nav> .mainLinks > .links{
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 2em;
+    font-size: 0.9em;
+}
+main {
+    position: relative;
+    top: 0px;
+}
+/*Alles zum Formular*/
+form {
+    background-color: #ffb3b3;
+    color: #750000;
+    border: 1px solid #750000;
+    width: 100%;
+    margin: 0 auto;
+    position:relative;
+}
+input,select {
+    font-family: 'Raleway';
+    font-size: inherit;
+}
+input[type="submit"] {
+    margin-left: 1%;
+    background-color: #750000;
+    color: #fff;
+    border: none;
+    transition: background-color 0.4s;
+}
+input[type="submit"]:hover {
+    margin-left: 1%;
+    background-color: #fff;
+    color: #750000;
+    border: none;
+}
+#geschlecht p{
+    font-family: 'Raleway', sans-serif;
+    font-display: swap;
+    justify-self: center;
+    align-self:center; 
+    text-align:center; 
+}
+/*Alles zur Mobilen Navigation*/
+.line{
+    width: 35px;
+    height: 3px;
+    background-color: var(--myWhiteColor);
+    margin: 5px;
+}
+
+.burgerLabel{
+    align-self: center;
+    justify-self: center;
+    display: none;
+}
+
+#toggleNav{
+    position: absolute;
+    top: -300px;
+}
+
+@media  screen and (max-width:760px){
+    .burgerLabel{
+        display: grid;
+        grid-area: burgerLabel;
+        padding-right: 10px;
+    }
+
+    nav{
+        position:fixed;
+        top: 0;
+        left: 0;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+        "... logoMobile burgerLabel"
+        "... mainLinksMobile ...";
+        z-index: 100;
+    }
+
+    .logo{
+        grid-area: logoMobile;
+        font-size: 1.3em;
+        justify-self: center;
+    }
+
+    .mainLinks{
+        grid-area: mainLinksMobile;
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav > .mainLinks > .links{
+        display: none;
+        grid-auto-flow: row;
+        grid-gap: 1.5em 0;
+        font-size: 1.5em;
+    }
+
+    #toggleNav:checked~.links{
+        display: grid;
+
+    }
+}
+/*STYLING BANNER*/
+.banner{
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+    height:800px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(./img/banner-kanu.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:var(--myWhiteColor);
+}
+
+.banner h1{
+    font-size: 3em;
+}
+
+.banner h3{
+    font-size: 2em;
+}
+
+.banner span{
+    font-size:2em;
+    border: 2px solid var(--myWhiteColor);
+    padding: 5px;
+    border-radius: 5px;
+}
+/*VIDEO und BANENR EINBINDUNG MEDIA QUERIES*/
+video{
+    width: 640px;
+    height: 480px;
+    box-shadow: 10px -10px 10px var(--myDarkRedColor);
+}
+
+video[poster]{
+    object-fit: cover;
+}
+
+@media screen and (max-width: 1500px) {
+    video{
+        width: 480px;
+        height: 360px;
+    }
+
+    .banner h1{
+        font-size: 2.5em;
+    }
+    
+    .banner h3{
+        font-size: 1.5em;
+    }
+    
+    .banner span{
+        font-size:1.5em;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    video{
+        width: 640px;
+        height: 480px;
+    }
+
+    .banner{
+        grid-auto-flow: row;
+        grid-gap: 80px;
+        padding: 100px 0;
+    }
+
+    .banner h1{
+        font-size: 3em;
+    }
+    
+    .banner h3{
+        font-size: 2em;
+    }
+    
+    .banner span{
+        font-size: 2em;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    video{
+        width: 80%;
+        height: 80%;
+    }
+
+    .banner{
+        padding: 50px 0;
+        grid-gap: 30px;
+    }
+
+    .banner h1{
+        font-size: 2.5em;
+    }
+    
+    .banner h3{
+        font-size: 1.5em;
+    }
+    
+    .banner span{
+        font-size: 1.5em;
+    }
+}
+
+.meeting{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-evenly;
+    background-color: var(--myLightRedColor);
+    color:var(--myWhiteColor);
+}
+
+.meetingItems{
+    display: grid;
+    grid-auto-flow: column;   
+}
+
+.meetingItems img{
+    width: 70px;
+    padding-top: 15px;
+    padding-right: 15px;
+}
+
+@media screen and (max-width: 768px){
+    .meeting{
+        grid-auto-flow: row;
+        grid-gap: 20px;
+    }
+}
+
+/*TICKET SECTION GESTYLT*/
+.tickets{
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    background-color: var(--myWhiteColor);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.ticketItems{
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 30px;
+    padding: 20px 0;
+}
+
+.ticket{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 1fr 2fr;
+    background-color: var(--myLightRedColor);
+    border: 2px solid var(--myNormalRedColor);
+    border-radius: 3px;
+}
+
+.ticket div{
+    width: 300px;
+    color:var(--myWhiteColor);
+}
+
+.ticket > div:nth-child(1){
+    background-color: var(--myMidRedColor);
+}
+/*Ticket Button Style, Ticket Hover ColorSwitch*/
+.ticket button{
+    width: 200px;
+    height: 50px;
+    background-color: var(--myDarkRedColor);
+    color: var(--myWhiteColor);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.ticket button:hover{
+    width: 200px;
+    height: 50px;
+    background-color: var(--myWhiteColor);
+    color: var(--myDarkRedColor);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 950px){
+    .ticketItems{
+        grid-auto-flow: row;
+    }
+}
+
+footer{
+    display: grid;
+    background-color: var(--myDarkRedColor);
+    color: var(--myWhiteColor);
+    justify-content: center;
+}
